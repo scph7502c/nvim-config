@@ -1,0 +1,7 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "json", "html"],
+  "javascript.format.enable": true,
+  "javascript.format.defaultFormatter": "prettier",
+  "prettier.requireConfig": false
+  "html.filetypes": ["html", "handlebars", "hbs"]
+}
