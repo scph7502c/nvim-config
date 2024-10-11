@@ -58,6 +58,8 @@ vim.cmd [[
 
   " File explorer to navigate project directories within Vim
   Plug 'preservim/nerdtree'
+  " Plug Coc.nvim for code completion and LSP support
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
   " Automatically close brackets, quotes, and other pairs
   Plug 'jiangmiao/auto-pairs'
@@ -80,6 +82,8 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping.complete(),
     ['<C-e>'] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm({ select = true }),  -- Confirm the selection
+    ['<Tab>'] = cmp.mapping.select_next_item(),        -- Navigate to the next item
+    ['<S-Tab>'] = cmp.mapping.select_prev_item(),      -- Navigate to the previous item
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
@@ -94,8 +98,8 @@ local lspconfig = require'lspconfig'
 
 -- Example configuration for language servers (more servers can be added)
 lspconfig.pyright.setup{}  -- Python
-lspconfig.ts_ls.setup{} -- TypeScript/JavaScript
-lspconfig.clangd.setup{} -- C/C++
+lspconfig.ts_ls.setup{}    -- TypeScript/JavaScript
+lspconfig.clangd.setup{}   -- C/C++
 
 -- Specify the Python interpreter for Python 3 plugins
 vim.g.python3_host_prog = '~/.venvs/nvim/bin/python'
