@@ -28,6 +28,11 @@ vim.api.nvim_set_keymap('n', '<F5>', ':w<CR>:!gcc % -o %< && ./%<<CR>', { norema
 vim.api.nvim_set_keymap('n', '<F6>', ':w<CR>:!clang-format -i %<CR>:e!<CR>', { noremap = true, silent = true })
 
 -- Plugin manager setup using vim-plug (Lua syntax is still compatible here)
+-- Automatic formatting of .hbs files on save
+vim.cmd [[
+  autocmd BufWritePre *.hbs :ALEFix
+]]
+
 vim.cmd [[
   call plug#begin('~/.local/share/nvim/plugged')
 
@@ -106,8 +111,14 @@ vim.g.python3_host_prog = '~/.venvs/nvim/bin/python'
 
 -- Configure ALE to lint on file save but not on text change
 vim.g.ale_lint_on_save = 1
+vim.g.ale_fixers = {
+    handlebars = {'prettier'},
+    html = {'prettier'},
+    javascript = {'prettier'},
+    css = {'prettier'}
+}
+vim.g.ale_fix_on_save = 1
 vim.g.ale_lint_on_text_changed = 'never'
-
 -- Disable preview window for completion options
 vim.opt.completeopt:remove('preview')
 
