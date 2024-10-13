@@ -57,7 +57,7 @@ vim.cmd [[
   Plug 'neovim/nvim-lspconfig'            " Collection of LSP configurations
   Plug 'L3MON4D3/LuaSnip'                 " Snippet engine
   Plug 'saadparwaiz1/cmp_luasnip'         " Snippet completions for LuaSnip
-
+  Plug 'sheerun/vim-polyglot'             " Syntax colors for HTML & handlebars
   " Plugin for easy text object manipulation (e.g., surrounding words with brackets)
   Plug 'tpope/vim-surround'
 
