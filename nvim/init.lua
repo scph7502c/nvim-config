@@ -68,7 +68,9 @@ vim.cmd [[
 
   " Automatically close brackets, quotes, and other pairs
   Plug 'jiangmiao/auto-pairs'
-
+  " For Bash scripting
+  Plug 'bash-lsp/bash-language-server', {'do': 'npm install -g bash-language-server'}
+  
   call plug#end()
 ]]
 
@@ -105,20 +107,27 @@ local lspconfig = require'lspconfig'
 lspconfig.pyright.setup{}  -- Python
 lspconfig.ts_ls.setup{}    -- TypeScript/JavaScript
 lspconfig.clangd.setup{}   -- C/C++
+lspconfig.bashls.setup{}
 
 -- Specify the Python interpreter for Python 3 plugins
 vim.g.python3_host_prog = '~/.venvs/nvim/bin/python'
 
 -- Configure ALE to lint on file save but not on text change
-vim.g.ale_lint_on_save = 1
 vim.g.ale_fixers = {
     handlebars = {'prettier'},
     html = {'prettier'},
     javascript = {'prettier'},
-    css = {'prettier'}
+    css = {'prettier'},
+    sh = {'shellcheck'}
 }
+
+vim.g.ale_linters_explicit = 1
+vim.g.ale_linters = {
+    sh = {'shellcheck'}
+}
+
+-- Ustawienia dla ALE
+vim.g.ale_lint_on_save = 1
 vim.g.ale_fix_on_save = 1
 vim.g.ale_lint_on_text_changed = 'never'
--- Disable preview window for completion options
-vim.opt.completeopt:remove('preview')
 
