@@ -2,14 +2,16 @@
 
 echo "Installing Neovim setup..."
 
-# Create the nvim directory in ~/.config/ if it doesn't exist
 mkdir -p ~/.config/nvim
 
-# Copy the configuration to the nvim directory
-cp -r * ~/.config/nvim/
+cp -r . ~/.config/nvim
 
-# Install plugins using vim-plug
-nvim --headless +PlugInstall +qall
+if [ ! -d "${HOME}/.local/share/nvim/site/pack/packer/start/packer.nvim" ]; then
+    echo "Installing packer.nvim..."
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim \
+      "${HOME}/.local/share/nvim/site/pack/packer/start/packer.nvim"
+fi
+
+nvim --headless +PackerSync +qall
 
 echo "Installation complete! Neovim configuration and plugins have been installed."
-
