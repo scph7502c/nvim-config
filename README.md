@@ -12,8 +12,8 @@ This repository contains my custom Neovim configuration, along with all necessar
 1. **Clone this repository**:
 
    ```bash
-   git clone https://github.com/scph7502c/nvim_config_repo.git
-   cd nvim_config_repo
+   git clone https://github.com/scph7502c/nvim_config.git
+   cd nvim_config
    ```
 
 2. **Run the setup script**:
