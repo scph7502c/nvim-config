@@ -1,6 +1,5 @@
 -- init.lua
 vim.cmd [[packadd packer.nvim]]
-vim.cmd [[colorscheme tokyonight]]
 require('plugins')
 require('settings')
 require('keymaps')

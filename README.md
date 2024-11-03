@@ -25,6 +25,8 @@ This repository contains my custom Neovim configuration, along with all necessar
    This script will:
    - Copy the configuration files to `~/.config/nvim`.
    - Install the `packer.nvim` plugin manager (if not already installed).
+   - Install all required packages (`clang`, `nodejs`, `npm`).
+   - Install necessary language servers (`pyright` for Python and `bash-language-server` for Bash).
    - Install and synchronize all plugins defined in the configuration.
 
 3. **Open Neovim**:
@@ -50,6 +52,28 @@ To update all plugins, open Neovim and run:
 ```vim
 :PackerSync
 ```
+
+## Additional Requirements
+
+The setup script will install the necessary dependencies, but if you prefer to install them manually, follow these steps:
+
+1. **Install required packages**:
+
+   ```bash
+   sudo apt update
+   sudo apt install clang nodejs npm
+   ```
+
+2. **Install Python and Bash language servers**:
+
+   ```bash
+   npm install -g pyright bash-language-server
+   ```
+
+These dependencies include:
+- `clang`: Required for compiling and formatting C code.
+- `nodejs` and `npm`: Required for installing language servers.
+- `pyright` and `bash-language-server`: Language servers for Python and Bash, enabling LSP features in Neovim.
 
 ## Troubleshooting
 
