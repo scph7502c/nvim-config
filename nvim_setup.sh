@@ -8,7 +8,6 @@ mkdir -p ~/.config/nvim
 # Copy the contents of the repository to the nvim directory in ~/.config/
 cp -r ./nvim/* ~/.config/nvim/
 
-# Wyświetl szczegółową listę zależności i poproś o potwierdzenie instalacji
 echo -e "\nThis setup requires the following dependencies to be installed:"
 echo "1. Git: For downloading plugins and dependencies."
 echo "2. Curl: For downloading additional tools like Oh My Zsh."
